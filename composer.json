@@ -1,0 +1,77 @@
+{
+    "name": "fallahalireza/laravel-kavenegar",
+    "description": "درایور تمیز، توسعه‌پذیر و تست‌پذیر ارسال پیامک کاوه‌نگار برای لاراول (Notification Channel، Facade، Fake)",
+    "type": "library",
+    "keywords": [
+        "laravel",
+        "kavenegar",
+        "sms",
+        "notification"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alireza Fallah",
+            "homepage": "https://www.alirezafallah.ir/"
+        }
+    ],
+    "homepage": "https://github.com/fallahalireza/laravel-kavenegar",
+    "support": {
+        "issues": "https://github.com/fallahalireza/laravel-kavenegar/issues",
+        "source": "https://github.com/fallahalireza/laravel-kavenegar"
+    },
+    "require": {
+        "php": "^8.3",
+        "illuminate/contracts": "^13.0",
+        "illuminate/http": "^13.0",
+        "illuminate/notifications": "^13.0",
+        "illuminate/support": "^13.0",
+        "psr/log": "^1.0|^2.0|^3.0"
+    },
+    "require-dev": {
+        "larastan/larastan": "^3.13",
+        "laravel/pint": "^1.32",
+        "orchestra/testbench": "^11.3",
+        "pestphp/pest": "^5.3",
+        "pestphp/pest-plugin-laravel": "^5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "FallahAlireza\\Kavenegar\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "FallahAlireza\\Kavenegar\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "FallahAlireza\\Kavenegar\\KavenegarServiceProvider"
+            ],
+            "aliases": {
+                "Sms": "FallahAlireza\\Kavenegar\\Facades\\Sms"
+            }
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "scripts": {
+        "test": "pest",
+        "lint": "pint --format agent",
+        "lint:check": "pint --test --format agent",
+        "analyse": "phpstan analyse --memory-limit=1G",
+        "ci:check": [
+            "@lint:check",
+            "@analyse",
+            "@test"
+        ]
+    }
+}
